@@ -1,0 +1,42 @@
+.NavBar {
+  display: grid;
+  grid-template-columns: 1fr 6fr 1fr 1fr;
+  padding-top: 15px;
+}
+
+.NavBar form {
+  padding-left: 5%;
+  padding-right: 5%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 3fr 1fr;
+}
+
+.NavBar [type="date"] {
+  background: #fff
+    url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)
+    97% 50% no-repeat;
+}
+.NavBar [type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+.NavBar [type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+.NavBar input,
+select,
+textarea {
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  background-color: #ffffff;
+  padding: 3px 5px;
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1);
+  /* width: 190px; */
+}
+
+.NavBar textarea {
+  padding-left: 5px;
+  margin-left: 10px;
+}
+.NavBar button {
+  margin-left: 10px;
+}
