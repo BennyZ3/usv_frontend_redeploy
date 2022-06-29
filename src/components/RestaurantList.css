@@ -2,16 +2,17 @@
   display: grid;
   grid-auto-flow: column;
   border: 2px solid blue;
-  height: 300px;
+  height: 430px;
   width: 80%;
   margin-left: 10%;
   overflow: scroll;
   gap: 5px;
+  padding: 5px;
 }
 
 .RestaurantCard {
-  width: 360px;
-  height: 515px;
+  width: 270px;
+  height: 420px;
   border: 1px solid black;
   border-radius: 5px;
   padding-left: 10px;
@@ -21,8 +22,18 @@
 .RestaurantCard h2 {
   font-size: 16px;
   font-weight: bold;
+  letter-spacing: -0.25px;
+  line-height: 1.38;
+  margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .RestaurantCard p {
   font-size: 14px;
   color: #737373;
+}
+
+.RestaurantCard img {
+  width: 95%;
 }
