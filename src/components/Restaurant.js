@@ -20,6 +20,9 @@ const Restaurant = (props) => {
   const handleClick = () => {
     nav(`/restaurants/${id}`);
   };
+  const handleClickToRes = () => {
+    nav(`/restaurants/${id}/reservations`);
+  };
   return (
     <div className="RestaurantCard">
       <div onClick={handleClick}>
@@ -29,9 +32,9 @@ const Restaurant = (props) => {
         <p>{location}</p>
         <p>{price}</p>
       </div>
-      {/* <p>{description}</p> */}
-      {/* <p>{price}</p>
-        <p>{price}</p> */}
+      <button className="bookNow" onClick={handleClickToRes}>
+        Book Now
+      </button>
     </div>
   );
 };

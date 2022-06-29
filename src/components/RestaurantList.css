@@ -37,3 +37,13 @@
 .RestaurantCard img {
   width: 95%;
 }
+
+.RestaurantCard .bookNow {
+  background-color: #336dde;
+  height: 40px;
+  width: 120px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #fff;
+  font-weight: bold;
+}
