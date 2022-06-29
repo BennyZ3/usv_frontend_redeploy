@@ -21,9 +21,9 @@ const Restaurant = (props) => {
     nav(`/restaurants/${id}`);
   };
   return (
-    <div className="RestaurantCard">
+    <div className="RestaurantCard" onClick={handleClick}>
       <img src="https://www.ipcc.ch/site/assets/uploads/sites/3/2019/10/img-placeholder.png" />
-      <h2 onClick={handleClick}>{name}</h2>
+      <h2>{name}</h2>
       <p>{cuisine}</p>
       <p>{location}</p>
       <p>{price}</p>
