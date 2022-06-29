@@ -56,7 +56,6 @@ select {
 
 .NavBar textarea {
   padding-left: 5px;
-  /* margin-left: 10px; */
   width: 290px;
   border: none;
   outline: none;
@@ -104,4 +103,6 @@ select {
   width: 150px;
   font-size: 16px;
   font-weight: bold;
+  border: none;
+  outline: none;
 }
