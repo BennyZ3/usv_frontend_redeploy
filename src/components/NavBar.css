@@ -1,7 +1,15 @@
 .NavBar {
   display: grid;
-  grid-template-columns: 1fr 6fr 1fr 1fr;
+  grid-template-columns: 1fr 6fr /*1fr 1fr */;
   padding-top: 15px;
+  background: linear-gradient(
+    0.647turn,
+    #1a0a47cc,
+    #0d1b4599 0.01%,
+    #0d1b45cc 51.04%,
+    #0d1b45 99.1%
+  );
+  padding-bottom: 15px;
 }
 
 .NavBar form {
@@ -9,34 +17,91 @@
   padding-right: 5%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 3fr 1fr;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-sizing: border-box;
 }
 
-.NavBar [type="date"] {
+.NavBar #date {
   background: #fff
     url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)
     97% 50% no-repeat;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+  min-width: 9.375rem;
+  overflow: visible;
+  /* height: 42px; */
 }
-.NavBar [type="date"]::-webkit-inner-spin-button {
+.NavBar #date::-webkit-inner-spin-button {
   display: none;
 }
-.NavBar [type="date"]::-webkit-calendar-picker-indicator {
+.NavBar #date::-webkit-calendar-picker-indicator {
   opacity: 0;
 }
+
+.NavBar .partySize,
+.NavBar .timePicker {
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+  height: 50px;
+}
+.NavBar .partySize {
+  margin-right: 15px;
+}
 .NavBar input,
-select,
-textarea {
-  border: 1px solid #c4c4c4;
-  border-radius: 5px;
-  background-color: #ffffff;
+select {
   padding: 3px 5px;
-  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1);
-  /* width: 190px; */
+  font-size: 1rem;
 }
 
 .NavBar textarea {
   padding-left: 5px;
-  margin-left: 10px;
+  /* margin-left: 10px; */
+  width: 290px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
 }
 .NavBar button {
   margin-left: 10px;
+}
+
+.NavBar_Logo {
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.NavBar form {
+  display: flex;
+  min-width: 30rem;
+}
+
+.NavBar span {
+  border: none;
+  border-radius: 4px;
+  color: #2d333f;
+  outline: none;
+  padding-left: 2.5rem;
+  padding-right: 16px;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  background: #fff;
+}
+.NavBar svg {
+  height: 24px;
+  width: 24px;
+  background: #fff;
+}
+
+.NavBar form button {
+  border-radius: 4px;
+  background-color: #da3743;
+  color: #fff;
+  height: 3rem;
+  width: 150px;
+  font-size: 16px;
+  font-weight: bold;
 }
