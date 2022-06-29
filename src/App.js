@@ -9,7 +9,6 @@ function App() {
     <div className="App">
       <main>
         <NavBar />
-        <h1>Placeholder</h1>
         {/* topBar */}
         <Routes>
           <Route exact path="/" element={<LandingPage />} />
