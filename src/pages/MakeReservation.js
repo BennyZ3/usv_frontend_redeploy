@@ -48,7 +48,7 @@ const MakeReservation = () => {
     <div>
       <h3>Make a reservation at</h3>
       <h3>{restaurant.name}</h3>
-      {console.log(restaurant)}
+      {/* {console.log(restaurant)} */}
       <form className="MakeReservation">
         <input id="firstName" type="text" placeholder="First Name" />
         <input id="lastName" type="text" placeholder="Last Name" />

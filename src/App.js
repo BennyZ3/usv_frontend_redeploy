@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar";
 import LandingPage from "./pages/LandingPage";
 import RestaurantDetails from "./pages/RestaurantDetails";
 import MakeReservation from "./pages/MakeReservation";
+import AddRestaurant from "./pages/AddRestaurant";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             path="/restaurants/:id/reservations"
             element={<MakeReservation />}
           />
+          <Route path="/restaurants/new" element={<AddRestaurant />} />
         </Routes>
         {/* bottom page links */}
       </main>

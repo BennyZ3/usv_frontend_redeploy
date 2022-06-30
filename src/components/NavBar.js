@@ -29,6 +29,9 @@ const NavBar = () => {
   const handleHome = () => {
     nav("/");
   };
+  const navToNew = () => {
+    nav("/restaurants/new");
+  };
   return (
     <div className="NavBar">
       <div onClick={handleHome} className="NavBar_Logo">
@@ -135,6 +138,9 @@ const NavBar = () => {
       </form>
       {/* <button>sign up</button>
       <button>sign in</button> */}
+      <button className="NewRestaurantButton" onClick={navToNew}>
+        Add a New Restaurant
+      </button>
     </div>
   );
 };
