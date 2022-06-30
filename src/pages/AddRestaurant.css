@@ -1,0 +1,42 @@
+.NewRestaurantForm {
+  display: grid;
+  grid-template-columns: auto;
+  row-gap: 15px;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 20px;
+  background-color: #ffffff;
+  padding: 15px;
+}
+.NewRestaurantForm input {
+  width: 300px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.NewRestaurantForm #description {
+  height: 3.5rem;
+  width: 300px;
+  overflow-y: scroll;
+  resize: none;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.NewRestaurantForm #openingTime,
+#closingTime {
+  width: 200px;
+}
+.NewRestaurantForm .tableCount {
+  width: 40px;
+  margin: 1px 5px 5px 6px;
+}
+
+.NewRestaurantForm button {
+  width: 250px;
+  margin-left: 30px;
+}
