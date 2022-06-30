@@ -32,6 +32,7 @@ const RestaurantDetails = () => {
       "-" +
       today.getDate(),
   };
+  const open = Number(restaurant.closingTime.slice(0, 2)) - time.hours;
   const params = useParams();
   const API = process.env.REACT_APP_API_URL;
   useEffect(() => {
@@ -42,29 +43,43 @@ const RestaurantDetails = () => {
   }, [API, params.id]);
   return (
     <div className="RestaurantDetails">
-      <img
-        src="https://www.ipcc.ch/site/assets/uploads/sites/3/2019/10/img-placeholder.png"
-        alt="Misc."
-      />
-      <h1>{restaurant.name}</h1>
-      <p>
+      <div className="detailsLeft">
+        <img
+          src="https://www.ipcc.ch/site/assets/uploads/sites/3/2019/10/img-placeholder.png"
+          alt="Misc."
+        />
+        <h1>{restaurant.name}</h1>
+        <p>Opens: {restaurant.openingTime}</p>
+        <p>Closes: {restaurant.closingTime}</p>
+        {/* <p>
         {Number(restaurant.openingTime.slice(0, 2)) <= time.hours &&
-        Number(restaurant.closingTime.slice(0, 2)) > time.hours
+          Number(restaurant.closingTime.slice(0, 2)) > time.hours
           ? `Open until ${restaurant.closingTime}`
           : "Closed"}
-      </p>
-      <p>
-        {restaurant.cuisine} · {restaurant.price}
-      </p>
-      <p>{restaurant.location}</p>
-      <h3>About {restaurant.name}</h3>
-      <p>{restaurant.description}</p>
-      <MakeReservation
-        id={restaurant.id}
-        date={time.date}
-        time={time.time}
-        close={restaurant.closingTime}
-      />
+        </p> */}
+        <p>
+          {open <= 0
+            ? "Closed"
+            : open === 1
+            ? `Closing Soon`
+            : `Open for ${open} more hours`}
+        </p>
+        <p>
+          {restaurant.cuisine} · {restaurant.price}
+        </p>
+        <p>{restaurant.location}</p>
+        <h3>About {restaurant.name}</h3>
+        <p>{restaurant.description}</p>
+      </div>
+      <div className="detailsRight">
+        <MakeReservation
+          id={restaurant.id}
+          date={time.date}
+          time={time.time}
+          close={restaurant.closingTime}
+          open={restaurant.openingTime}
+        />
+      </div>
     </div>
   );
 };

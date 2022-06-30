@@ -1,0 +1,30 @@
+.MakeReservationForm {
+  width: 500px;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 20px;
+}
+
+.MakeReservationForm input {
+  width: 250px;
+}
+
+.MakeReservationForm select {
+  width: 100px;
+}
+.MakeReservationForm #date {
+  width: 125px;
+}
+
+.MakeReservationForm button {
+  border-radius: 4px;
+  background-color: #da3743;
+  color: #fff;
+  height: 3rem;
+  width: 250px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  margin-right: 15px;
+}

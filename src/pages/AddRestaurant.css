@@ -27,6 +27,10 @@
   border-radius: 5px;
 }
 
+.NewRestaurantForm #price {
+  width: 80px;
+}
+
 .NewRestaurantForm #openingTime,
 #closingTime {
   width: 200px;
