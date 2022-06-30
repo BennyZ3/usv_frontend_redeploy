@@ -78,6 +78,7 @@ const AddRestaurant = () => {
           name="closingTime"
           onChange={handleTime}
         />
+        <lebel htmlFor="price">Price: </lebel>
         <select id="price" onChange={handleChange}>
           <option value="$">$</option>
           <option value="$$">$$</option>
