@@ -21,7 +21,10 @@ const NavBar = () => {
     numGuests: 2,
     searchQuery: "",
   });
-  console.log(search);
+
+  const handleChange = (event) => {
+    setSearch({ ...search, [event.target.id]: event.target.value });
+  };
 
   const handleHome = () => {
     nav("/");
@@ -36,15 +39,16 @@ const NavBar = () => {
           type="date"
           id="date"
           defaultValue={search.date}
+          min={search.date}
           value={search.date}
-          onChange={""}
+          onChange={handleChange}
         />
         <select
           className="timePicker"
           id="timePicker"
           selected={search.time}
           value={search.time}
-          onChange={""}
+          onChange={handleChange}
         >
           <option value="08:00:00">8:00 AM</option>
           <option value="08:30:00">8:30 AM</option>
@@ -83,7 +87,7 @@ const NavBar = () => {
           className="partySize"
           defaultValue={{ value: search.numGuests }}
           value={search.numGuests}
-          onChange={""}
+          onChange={handleChange}
         >
           <option value="1">1</option>
           <option value="2">2</option>
