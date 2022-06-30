@@ -91,8 +91,8 @@ const MakeReservation = () => {
         <select
           id="time"
           name="time"
-          selected={time.hours + ":00:00"}
-          value={time.hours + ":00:00"}
+          selected={time.time}
+          value={time.time}
           onChange={""}
         >
           <option value="08:00:00">8:00 AM</option>

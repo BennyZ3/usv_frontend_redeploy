@@ -39,6 +39,7 @@ const NavBar = () => {
           type="date"
           id="date"
           defaultValue={search.date}
+          min={search.date}
           value={search.date}
           onChange={handleChange}
         />
