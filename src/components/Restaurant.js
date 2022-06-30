@@ -26,7 +26,10 @@ const Restaurant = (props) => {
   return (
     <div className="RestaurantCard">
       <div onClick={handleClick}>
-        <img src="https://www.ipcc.ch/site/assets/uploads/sites/3/2019/10/img-placeholder.png" />
+        <img
+          src="https://www.ipcc.ch/site/assets/uploads/sites/3/2019/10/img-placeholder.png"
+          alt="placeholder"
+        />
         <h2>{name}</h2>
         <p>{cuisine}</p>
         <p>{location}</p>

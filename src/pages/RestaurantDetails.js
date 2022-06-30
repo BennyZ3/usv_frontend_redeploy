@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import MakeReservation from "../components/MakeReservation";
+import MakeReservation from "./MakeReservation";
 import "./RestaurantDetails.css";
 const RestaurantDetails = () => {
   const [restaurant, setRestaurant] = useState({
@@ -39,10 +39,13 @@ const RestaurantDetails = () => {
       .get(API + "/API/restaurants/" + params.id)
       .then((response) => setRestaurant(response.data))
       .catch((error) => console.log(error));
-  }, [API]);
+  }, [API, params.id]);
   return (
     <div className="RestaurantDetails">
-      <img />
+      <img
+        src="https://www.ipcc.ch/site/assets/uploads/sites/3/2019/10/img-placeholder.png"
+        alt="Misc."
+      />
       <h1>{restaurant.name}</h1>
       <p>
         {Number(restaurant.openingTime.slice(0, 2)) <= time.hours &&
