@@ -2,7 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-const MakeReservation = () => {
+const MakeReservation = (props) => {
+  console.log(props);
   const params = useParams();
   const API = process.env.REACT_APP_API_URL;
   const today = new Date();
@@ -26,17 +27,17 @@ const MakeReservation = () => {
     lastName: "",
     phoneNumber: "",
     email: "",
-    time: `${time.date}T${time.hours}:${time.minutes}:00`,
+    time: `${time.date} ${time.hours}:${time.minutes}:00`,
     numOfGuests: "2",
     restaurantId: params.id,
   });
   const [restaurant, setRestaurant] = useState({});
   useEffect(() => {
     axios
-      .get(API + `/API/restaurants/` + params.id)
+      .get(API + `/api/restaurants/` + params.id)
       .then((response) => setRestaurant(response.data))
       .catch((error) => console.log(error));
-  }, [API]);
+  }, [API, params.id]);
 
   const handleChange = (event) => {
     setReservation({
@@ -44,18 +45,50 @@ const MakeReservation = () => {
       [event.target.id]: event.target.value,
     });
   };
+  const handleTime = (event) => {
+    setTime({ ...time, [event.target.id]: event.target.value });
+    setReservation({ ...reservation, time: `${time.date} ${time.time}` });
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(reservation);
+    // axios
+    //   .post(API + "/api/reservations", reservation)
+    //   .then((res) => console.log(res))
+    //   .catch((err) => console.log(err));
+  };
   return (
     <div>
       <h3>Make a reservation at</h3>
       <h3>{restaurant.name}</h3>
       {/* {console.log(restaurant)} */}
-      <form className="MakeReservation">
-        <input id="firstName" type="text" placeholder="First Name" />
-        <input id="lastName" type="text" placeholder="Last Name" />
-        <input id="phoneNumber" type="tel" placeholder="Phone Number" />
-        <input id="email" type="email" placeholder="Email" />
+      <form className="MakeReservation" onSubmit={handleSubmit}>
+        <input
+          id="firstName"
+          onChange={handleChange}
+          type="text"
+          placeholder="First Name"
+        />
+        <input
+          id="lastName"
+          type="text"
+          onChange={handleChange}
+          placeholder="Last Name"
+        />
+        <input
+          id="phoneNumber"
+          type="tel"
+          onChange={handleChange}
+          placeholder="Phone Number"
+        />
+        <input
+          id="email"
+          type="email"
+          onChange={handleChange}
+          placeholder="Email"
+        />
         <label htmlFor="numOfGuests">Party Size</label>
-        <select id="numOfGuests" name="numOfGuests" onChange={""}>
+        <select id="numOfGuests" name="numOfGuests" onChange={handleChange}>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -85,7 +118,7 @@ const MakeReservation = () => {
           id="date"
           defaultValue={time.date}
           value={time.date}
-          onChange={""}
+          onChange={handleChange}
         />
         <label htmlFor="time">Time</label>
         <select
@@ -93,7 +126,7 @@ const MakeReservation = () => {
           name="time"
           selected={time.hours + ":00:00"}
           value={time.hours + ":00:00"}
-          onChange={""}
+          onChange={handleTime}
         >
           <option value="08:00:00">8:00 AM</option>
           <option value="08:30:00">8:30 AM</option>

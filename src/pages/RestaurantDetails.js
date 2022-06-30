@@ -17,7 +17,7 @@ const RestaurantDetails = () => {
     tables: {},
   });
   const today = new Date();
-  const [time, setTime] = useState({
+  const time = {
     hours: today.getHours(),
     time:
       Number(today.getMinutes()) > 31
@@ -31,7 +31,7 @@ const RestaurantDetails = () => {
         : "0" + (today.getMonth() + 1)) +
       "-" +
       today.getDate(),
-  });
+  };
   const params = useParams();
   const API = process.env.REACT_APP_API_URL;
   useEffect(() => {
@@ -59,7 +59,12 @@ const RestaurantDetails = () => {
       <p>{restaurant.location}</p>
       <h3>About {restaurant.name}</h3>
       <p>{restaurant.description}</p>
-      <MakeReservation id={restaurant.id} date={time.date} time={time.time} />
+      <MakeReservation
+        id={restaurant.id}
+        date={time.date}
+        time={time.time}
+        close={restaurant.closingTime}
+      />
     </div>
   );
 };

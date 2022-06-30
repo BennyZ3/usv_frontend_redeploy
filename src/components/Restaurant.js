@@ -21,7 +21,8 @@ const Restaurant = (props) => {
     nav(`/restaurants/${id}`);
   };
   const handleClickToRes = () => {
-    nav(`/restaurants/${id}/reservations`);
+    // nav(`/restaurants/${id}/reservations`);
+    nav(`/restaurants/${id}`);
   };
   return (
     <div className="RestaurantCard">

@@ -6,7 +6,7 @@
 //   const params = useParams();
 //   const API = process.env.REACT_APP_API_URL;
 //   const today = new Date();
-//   const [time, setTime] = useState({
+//   const time = {
 //     hours: today.getHours(),
 //     time:
 //       Number(today.getMinutes()) > 31
@@ -20,7 +20,7 @@
 //         : "0" + (today.getMonth() + 1)) +
 //       "-" +
 //       today.getDate(),
-//   });
+//   };
 //   const [reservation, setReservation] = useState({
 //     firstName: "",
 //     lastName: "",
