@@ -2,9 +2,24 @@
   width: 500px;
   display: grid;
   grid-template-columns: 1fr 2.75fr;
+  margin-left: 3%;
 }
 
 .ReservationDetails h2,
 .ReservationDetails h3 {
   grid-column: span 2;
+}
+
+.ReservationDetails button {
+  border-radius: 4px;
+  background-color: #da3743;
+  color: #fff;
+  height: 3rem;
+  /* width: fit-content; */
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  margin-right: 15px;
+  padding: 0 10px;
 }
