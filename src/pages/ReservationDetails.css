@@ -1,0 +1,10 @@
+.ReservationDetails {
+  width: 500px;
+  display: grid;
+  grid-template-columns: 1fr 2.75fr;
+}
+
+.ReservationDetails h2,
+.ReservationDetails h3 {
+  grid-column: span 2;
+}
