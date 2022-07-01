@@ -43,13 +43,11 @@ const NavBar = () => {
           id="date"
           defaultValue={search.date}
           min={search.date}
-          value={search.date}
           onChange={handleChange}
         />
         <select
           className="timePicker"
           id="timePicker"
-          selected={search.time}
           value={search.time}
           onChange={handleChange}
         >
@@ -89,7 +87,6 @@ const NavBar = () => {
         <select
           className="partySize"
           defaultValue={{ value: search.numGuests }}
-          value={search.numGuests}
           onChange={handleChange}
         >
           <option value="1">1</option>

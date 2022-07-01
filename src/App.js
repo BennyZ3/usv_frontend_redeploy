@@ -5,6 +5,8 @@ import LandingPage from "./pages/LandingPage";
 import RestaurantDetails from "./pages/RestaurantDetails";
 import MakeReservation from "./pages/MakeReservation";
 import AddRestaurant from "./pages/AddRestaurant";
+import AllReservations from "./pages/AllReservations";
+import ReservationDetails from "./pages/ReservationDetails";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
             element={<MakeReservation />}
           />
           <Route path="/restaurants/new" element={<AddRestaurant />} />
+          <Route path="/reservations" element={<AllReservations />} />
+          <Route path="/reservations/:id" element={<ReservationDetails />} />
         </Routes>
         {/* bottom page links */}
       </main>
