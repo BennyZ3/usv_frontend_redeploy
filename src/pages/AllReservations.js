@@ -13,7 +13,7 @@ const AllReservations = () => {
         setReservations(res.data.reservations);
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [API]);
   const handleClick = (event) => {
     nav(`/reservations/${event.target.id}`);
   };
