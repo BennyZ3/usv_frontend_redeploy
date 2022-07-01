@@ -29,7 +29,7 @@ const MakeReservation = (props) => {
     phoneNumber: "",
     email: "",
     time: `${time.date} ${time.hours}:${time.minutes}:00`,
-    numOfGuests: "2",
+    numGuests: "2",
     restaurantId: params.id,
   });
   const [restaurant, setRestaurant] = useState({});
@@ -49,6 +49,7 @@ const MakeReservation = (props) => {
   };
   const handleTime = (event) => {
     setTime({ ...time, [event.target.id]: event.target.value });
+    setReservation({ ...reservation, time: `${time.date} ${time.time}` });
   };
   const timeChecker = () => {
     // Check if date or time is already passed
@@ -56,34 +57,36 @@ const MakeReservation = (props) => {
     let date2 = Date.parse(time.date);
     setReservation({ ...reservation, time: `${time.date} ${time.time}` });
     if (time.time > props.close || time.time < props.open) {
+      alert(`${restaurant.name} not open at ${reservation.time}`);
       return false;
     }
 
     if (date1 <= date2) {
       if (date1 === date2) {
-        return props.time < time.time ? true : false;
+        if (props.time > time.time) {
+          alert(`Already passed ${time.time}`);
+          return false;
+        }
+        return true;
       }
       return true;
     } else {
+      alert(`Date has already passed`);
       return false;
     }
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (timeChecker()) {
-      // Request currently receieving 400 error from backend response
-      console.log("submit", reservation);
       axios
         .post(API + "/api/reservations", reservation)
         .then((res) =>
-          alert(`Reservation has been made for ${restaurant.time}`)
+          alert(`Reservation has been made for ${reservation.time}`)
         )
         .catch((err) => {
           console.log(err);
-          alert(`Reservation encountered an error`);
+          // alert(`Reservation encountered an error`);
         });
-    } else {
-      alert("invalid time/date");
     }
   };
   return (
@@ -114,8 +117,8 @@ const MakeReservation = (props) => {
           onChange={handleChange}
           placeholder="Email"
         />
-        <label htmlFor="numOfGuests">Party Size</label>
-        <select id="numOfGuests" name="numOfGuests" onChange={handleChange}>
+        <label htmlFor="numGuests">Party Size</label>
+        <select id="numGuests" name="numGuests" onChange={handleChange}>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
