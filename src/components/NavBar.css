@@ -1,6 +1,6 @@
 .NavBar {
   display: grid;
-  grid-template-columns: 1fr 6fr 1fr /*1fr 1fr */;
+  grid-template-columns: 1fr 6fr 1fr 1fr /*1fr 1fr */;
   padding-top: 15px;
   background: linear-gradient(
     0.647turn,
@@ -116,10 +116,24 @@ select {
   background-color: #da3743;
   color: #fff;
   height: 3rem;
-  width: 250px;
+  width: fit-content;
   font-size: 16px;
   font-weight: bold;
   border: none;
   outline: none;
   margin-right: 15px;
+}
+
+.NavBar .NavBarReservations {
+  border-radius: 4px;
+  background-color: #da3743;
+  color: #fff;
+  height: 3rem;
+  width: fit-content;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  margin-right: 15px;
+  padding: 0 10px;
 }
