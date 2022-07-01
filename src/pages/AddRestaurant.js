@@ -13,9 +13,8 @@ const AddRestaurant = () => {
     closingTime: "00:00:00",
     location: "",
     cuisine: "",
-    price: "$",
-    // diningRestriction: null,
-    // tables: {},
+    price: "",
+    diningRestriction: null,
   });
   const handleChange = (event) => {
     setRestaurant({ ...restaurant, [event.target.id]: event.target.value });
@@ -29,13 +28,6 @@ const AddRestaurant = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // let table = {
-    //   twoPersonTables: restaurant.twoPersonTables,
-    //   fourPersonTables: restaurant.fourPersonTables,
-    //   eightPersonTables: restaurant.eightPersonTables,
-    // };
-    // setRestaurant({ ...restaurant, tables: table });
-    console.log(restaurant);
     axios
       .post(`${API}/api/restaurants`, restaurant)
       .then((res) => nav(`/restaurants/${res.data.id}`));
@@ -51,7 +43,6 @@ const AddRestaurant = () => {
           placeholder="Restaurant Name"
         />
         <textarea
-          //   type="textarea"
           onChange={handleChange}
           id="description"
           placeholder="Description"
@@ -78,7 +69,6 @@ const AddRestaurant = () => {
           name="closingTime"
           onChange={handleTime}
         />
-        <lebel htmlFor="price">Price: </lebel>
         <select id="price" onChange={handleChange}>
           <option value="$">$</option>
           <option value="$$">$$</option>
@@ -97,36 +87,6 @@ const AddRestaurant = () => {
           id="location"
           placeholder="Location/City"
         />
-
-        {/* <div>
-          <h3>Tables:</h3>
-          <label htmlFor="twoPersonTables">Small:</label>
-          <input
-            type="number"
-            min="0"
-            id="twoPersonTables"
-            className="tableCount"
-            onChange={handleChange}
-          />
-          <label htmlFor="fourPersonTables">Medium:</label>
-
-          <input
-            type="number"
-            min="0"
-            id="fourPersonTables"
-            className="tableCount"
-            onChange={handleChange}
-          />
-          <label htmlFor="eightPersonTables">Large:</label>
-
-          <input
-            type="number"
-            min="0"
-            id="eightPersonTables"
-            className="tableCount"
-            onChange={handleChange}
-          />
-        </div> */}
         <button type="submit">Submit</button>
       </form>
     </div>

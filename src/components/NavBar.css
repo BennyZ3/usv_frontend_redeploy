@@ -30,7 +30,6 @@
   border-top-left-radius: 4px;
   min-width: 9.375rem;
   overflow: visible;
-  /* height: 42px; */
 }
 .NavBar #date::-webkit-inner-spin-button {
   display: none;

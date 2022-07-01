@@ -21,7 +21,7 @@ const ReservationDetails = () => {
       .get(`${API}/api/reservations/${id}`)
       .then((res) => setReservation(res.data))
       .catch((err) => console.warn(err));
-  }, []);
+  }, [API, id]);
   const handleDelete = () => {
     axios
       .delete(`${API}/api/reservations/${id}`)

@@ -16,9 +16,13 @@ const RestaurantsList = (props) => {
   return (
     <div className="restaurantList resList">
       {typeof restaurants.restaurants === "object"
-        ? restaurants.restaurants.map((restaurant) => {
+        ? restaurants.restaurants.map((restaurant, index) => {
             return (
-              <Restaurant restaurantDetails={restaurant} key={restaurant.id} />
+              <Restaurant
+                restaurantDetails={restaurant}
+                key={restaurant.id}
+                index={index}
+              />
             );
           })
         : ""}

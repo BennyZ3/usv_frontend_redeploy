@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 const NavBar = () => {
   const today = new Date();
   const nav = useNavigate();
+  // currently not used, but planning for a search based on availability
   const [search, setSearch] = useState({
     date:
       today.getFullYear() +
@@ -18,7 +19,7 @@ const NavBar = () => {
       Number(today.getMinutes()) > 31
         ? today.getHours() + 1 + ":00:00"
         : today.getHours() + ":30:00",
-    numGuests: 2,
+    numGuests: 1,
     searchQuery: "",
   });
 
