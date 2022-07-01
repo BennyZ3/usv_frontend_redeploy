@@ -51,12 +51,6 @@ const RestaurantDetails = () => {
         <h1>{restaurant.name}</h1>
         <p>Opens: {restaurant.openingTime}</p>
         <p>Closes: {restaurant.closingTime}</p>
-        {/* <p>
-        {Number(restaurant.openingTime.slice(0, 2)) <= time.hours &&
-          Number(restaurant.closingTime.slice(0, 2)) > time.hours
-          ? `Open until ${restaurant.closingTime}`
-          : "Closed"}
-        </p> */}
         <p>
           {open <= 0
             ? "Closed"

@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 // import qs from "qs";
 import "./MakeReservation.css";
+
 const MakeReservation = (props) => {
-  console.log(props);
   const params = useParams();
   const API = process.env.REACT_APP_API_URL;
   const today = new Date();
@@ -33,6 +33,7 @@ const MakeReservation = (props) => {
     restaurantId: params.id,
   });
   const [restaurant, setRestaurant] = useState({});
+
   useEffect(() => {
     axios
       .get(API + `/api/restaurants/` + params.id)
@@ -50,6 +51,7 @@ const MakeReservation = (props) => {
     setTime({ ...time, [event.target.id]: event.target.value });
   };
   const timeChecker = () => {
+    // Check if date or time is already passed
     let date1 = Date.parse(props.date);
     let date2 = Date.parse(time.date);
     setReservation({ ...reservation, time: `${time.date} ${time.time}` });
@@ -69,6 +71,7 @@ const MakeReservation = (props) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (timeChecker()) {
+      // Request currently receieving 400 error from backend response
       console.log("submit", reservation);
       axios
         .post(API + "/api/reservations", reservation)
@@ -86,7 +89,6 @@ const MakeReservation = (props) => {
   return (
     <div>
       <h3>Make a reservation at {restaurant.name}</h3>
-      {/* {console.log(restaurant)} */}
       <form className="MakeReservationForm" onSubmit={handleSubmit}>
         <input
           id="firstName"
@@ -141,19 +143,11 @@ const MakeReservation = (props) => {
           type="date"
           name="date"
           id="date"
-          // defaultValue={time.date}
-          // value={time.date}
           min={props.date}
           onChange={handleTime}
         />
         <label htmlFor="time">Time</label>
-        <select
-          id="time"
-          name="time"
-          // selected={time.hours + ":00:00"}
-          // value={time.hours + ":00:00"}
-          onChange={handleTime}
-        >
+        <select id="time" name="time" onChange={handleTime}>
           <option value="08:00:00">8:00 AM</option>
           <option value="08:30:00">8:30 AM</option>
           <option value="09:00:00">9:00 AM</option>
