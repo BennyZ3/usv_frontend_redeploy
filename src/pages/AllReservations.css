@@ -4,3 +4,7 @@
   row-gap: 10px;
   margin-left: 3%;
 }
+
+.AllReservations div:hover {
+  transform: translate(-0.05rem, -0.05rem);
+}
