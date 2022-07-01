@@ -1,7 +1,8 @@
 .restaurantList {
   display: grid;
   grid-auto-flow: column;
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
+  border-top: 1px solid #d8d9db;
   height: 430px;
   width: 80%;
   margin-left: 10%;
@@ -13,10 +14,11 @@
 .RestaurantCard {
   width: 270px;
   height: 420px;
-  border: 1px solid black;
+  border: 2px solid #d8d9db;
   border-radius: 5px;
   padding-left: 10px;
   text-align: left;
+  margin-top: 5px;
 }
 
 .RestaurantCard h2 {
@@ -35,8 +37,10 @@
 }
 
 .RestaurantCard img {
-  width: 95%;
+  /* width: 100%; */
   margin-top: 10px;
+  height: 220px;
+  width: 260px;
 }
 
 .RestaurantCard .bookNow {
