@@ -58,3 +58,18 @@
   transform: translate(-0.1rem, -0.25rem);
   box-shadow: 1px 2px #d8d9db;
 }
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+    transform: translateX(0);
+  }
+}
+
+.RestaurantCard {
+  animation: 0.5s ease-out 0s 1 slideInFromLeft;
+}

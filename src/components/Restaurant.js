@@ -1,5 +1,3 @@
-// const imageSearch = require("image-search-google");
-
 import { useNavigate } from "react-router-dom";
 
 const Restaurant = (props) => {
@@ -16,16 +14,17 @@ const Restaurant = (props) => {
     // reservations,
   } = props.restaurantDetails;
   let nav = useNavigate();
-  // console.log(name, tables, reservations);
   const handleClick = () => {
     nav(`/restaurants/${id}`);
   };
   const handleClickToRes = () => {
-    // nav(`/restaurants/${id}/reservations`);
     nav(`/restaurants/${id}`);
   };
   return (
-    <div className="RestaurantCard">
+    <div
+      className="RestaurantCard"
+      style={{ animationDelay: props.index / 96 + "s" }}
+    >
       <div onClick={handleClick}>
         <img
           src="https://www.ipcc.ch/site/assets/uploads/sites/3/2019/10/img-placeholder.png"
