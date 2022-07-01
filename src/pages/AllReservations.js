@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import "./AllReservations.css";
 const AllReservations = () => {
   const [reservations, setReservations] = useState([]);
   const API = process.env.REACT_APP_API_URL;
@@ -18,7 +18,7 @@ const AllReservations = () => {
     nav(`/reservations/${event.target.id}`);
   };
   return (
-    <div>
+    <div className="AllReservations">
       <h1>All Reservations</h1>
       {reservations.map((res) => {
         return (

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import qs from "qs";
+// import qs from "qs";
 import "./MakeReservation.css";
 const MakeReservation = (props) => {
   console.log(props);
@@ -69,8 +69,9 @@ const MakeReservation = (props) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (timeChecker()) {
+      console.log("submit", reservation);
       axios
-        .post(API + "/api/reservations", qs.stringify(reservation))
+        .post(API + "/api/reservations", reservation)
         .then((res) =>
           alert(`Reservation has been made for ${restaurant.time}`)
         )
@@ -187,7 +188,7 @@ const MakeReservation = (props) => {
           <option value="23:30:00">11:30 PM</option>
         </select>
         <button type="submit" onClick={""}>
-          Check Time Availability
+          Reserve
         </button>
       </form>
     </div>
