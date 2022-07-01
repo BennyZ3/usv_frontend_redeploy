@@ -27,7 +27,7 @@ const Restaurant = (props) => {
     >
       <div onClick={handleClick}>
         <img
-          src="https://www.ipcc.ch/site/assets/uploads/sites/3/2019/10/img-placeholder.png"
+          src="https://previews.123rf.com/images/chrisdorney/chrisdorney1509/chrisdorney150900154/45017339-a-generic-restaurant-sign-.jpg"
           alt="placeholder"
         />
         <h2>{name}</h2>
