@@ -36,6 +36,7 @@
 
 .RestaurantCard img {
   width: 95%;
+  margin-top: 10px;
 }
 
 .RestaurantCard .bookNow {
