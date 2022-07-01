@@ -26,7 +26,7 @@ const ReservationDetails = () => {
     axios
       .delete(`${API}/api/reservations/${id}`)
       .then(() => {
-        nav("/");
+        nav("/reservations");
       })
       .catch((err) => {
         console.log(err);

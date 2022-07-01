@@ -7,3 +7,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+
+.RestaurantDetails .detailsLeft img {
+  width: 560px;
+}

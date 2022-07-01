@@ -45,8 +45,8 @@ const RestaurantDetails = () => {
     <div className="RestaurantDetails">
       <div className="detailsLeft">
         <img
-          src="https://www.ipcc.ch/site/assets/uploads/sites/3/2019/10/img-placeholder.png"
-          alt="Misc."
+          src="https://previews.123rf.com/images/chrisdorney/chrisdorney1509/chrisdorney150900154/45017339-a-generic-restaurant-sign-.jpg"
+          alt="Filler"
         />
         <h1>{restaurant.name}</h1>
         <p>Opens: {restaurant.openingTime}</p>
