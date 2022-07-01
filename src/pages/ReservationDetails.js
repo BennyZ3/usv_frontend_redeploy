@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./ReservationDetails.css";
 const ReservationDetails = () => {
   const [reservation, setReservation] = useState({
@@ -15,12 +15,23 @@ const ReservationDetails = () => {
   });
   const { id } = useParams();
   const API = process.env.REACT_APP_API_URL;
+  const nav = useNavigate();
   useEffect(() => {
     axios
       .get(`${API}/api/reservations/${id}`)
       .then((res) => setReservation(res.data))
       .catch((err) => console.warn(err));
   }, []);
+  const handleDelete = () => {
+    axios
+      .delete(`${API}/api/reservations/${id}`)
+      .then(() => {
+        nav("/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className="ReservationDetails">
@@ -38,6 +49,8 @@ const ReservationDetails = () => {
       <p>{reservation.numGuests}</p>
       <h4>Restaurant ID: </h4>
       <p>{reservation.restaurantId}</p>
+      <button onClick={handleDelete}>Delete</button>
+      <button>Edit</button>
     </div>
   );
 };
