@@ -2,12 +2,14 @@ import axios from "axios";
 import QueryString from 'qs';
 import { useEffect, useState } from "react";
 // import { useParams } from "react-router-dom";
+import {useLocation} from "react0router-dom";
 import Restaurant from "./Restaurant";
 import "./RestaurantList.css";
 
 const RestaurantsList = (props) => {
   const API = process.env.REACT_APP_API_URL;
   const [restaurants, setRestaurants] = useState([]);
+  const location = useLocation();
   // const { search } = props;
   // const params = useParams();
   // let query = QueryString.stringify(params);
@@ -16,6 +18,10 @@ const RestaurantsList = (props) => {
   useEffect(() => {
     // console.log(params);
     console.log(query);
+    if (location.pathname === '/'){
+      query = '' 
+      localStorage.removeItem("query")
+    }
     if (query) {
       axios
         .get(API + "/API/restaurants?" + QueryString.stringify(query))
