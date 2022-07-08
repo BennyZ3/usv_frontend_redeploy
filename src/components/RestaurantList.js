@@ -1,7 +1,7 @@
 import axios from "axios";
 import QueryString from "qs";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import Restaurant from "./Restaurant";
 import "./RestaurantList.css";
 
@@ -9,12 +9,16 @@ const RestaurantsList = (props) => {
   const API = process.env.REACT_APP_API_URL;
   const [restaurants, setRestaurants] = useState([]);
   // const { search } = props;
-  const params = useParams();
+  // const params = useParams();
+  // let query = QueryString.stringify(params);
+  let query = JSON.parse(localStorage.getItem("query"));
+  console.log(query);
   useEffect(() => {
-    console.log(QueryString.stringify(params));
-    if (params.searchTerm) {
+    // console.log(params);
+    console.log(query);
+    if (query) {
       axios
-        .get(API + "/API/restaurants?" + QueryString.stringify(params))
+        .get(API + "/API/restaurants?" + QueryString.stringify(query))
         .then((response) => setRestaurants(response.data))
         .catch((error) => console.log(error));
     } else {
@@ -23,7 +27,7 @@ const RestaurantsList = (props) => {
         .then((response) => setRestaurants(response.data))
         .catch((error) => console.log(error));
     }
-  }, [API, params]);
+  }, [API, query]);
   return (
     <div className="restaurantList resList">
       {typeof restaurants.restaurants !== "object"

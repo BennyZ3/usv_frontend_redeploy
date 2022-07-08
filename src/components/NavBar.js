@@ -20,7 +20,7 @@ const NavBar = () => {
     //     ? today.getHours() + 1 + ":00:00"
     //     : today.getHours() + ":30:00",
     // numGuests: 1,
-    searchQuery: "",
+    searchTerm: "",
   });
 
   const handleChange = (event) => {
@@ -38,7 +38,9 @@ const NavBar = () => {
   };
   const handleSearch = () => {
     console.log(search);
-    nav("/search/" + search.searchQuery);
+    // nav("/search/" + search.searchQuery);
+    localStorage.setItem("query", JSON.stringify(search));
+    nav("/search?");
   };
   return (
     <div className="NavBar">
@@ -136,7 +138,7 @@ const NavBar = () => {
           </svg>
           <textarea
             placeholder="Location, Restaurant, or Cuisine"
-            id="searchQuery"
+            id="searchTerm"
             className="search"
             onChange={handleChange}
           ></textarea>
