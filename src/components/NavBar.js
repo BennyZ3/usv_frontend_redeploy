@@ -7,20 +7,20 @@ const NavBar = () => {
   const nav = useNavigate();
   // currently not used, but planning for a search based on availability
   const [search, setSearch] = useState({
-    date:
-      today.getFullYear() +
-      "-" +
-      (today.getMonth() > 8
-        ? today.getMonth() + 1
-        : "0" + (today.getMonth() + 1)) +
-      "-" +
-      today.getDate(),
-    time:
-      Number(today.getMinutes()) > 31
-        ? today.getHours() + 1 + ":00:00"
-        : today.getHours() + ":30:00",
-    numGuests: 1,
-    searchQuery: "",
+    // date:
+    //   today.getFullYear() +
+    //   "-" +
+    //   (today.getMonth() > 8
+    //     ? today.getMonth() + 1
+    //     : "0" + (today.getMonth() + 1)) +
+    //   "-" +
+    //   today.getDate(),
+    // time:
+    //   Number(today.getMinutes()) > 31
+    //     ? today.getHours() + 1 + ":00:00"
+    //     : today.getHours() + ":30:00",
+    // numGuests: 1,
+    searchTerm: "",
   });
 
   const handleChange = (event) => {
@@ -35,6 +35,12 @@ const NavBar = () => {
   };
   const navToRes = () => {
     nav("/reservations");
+  };
+  const handleSearch = () => {
+    console.log(search);
+    // nav("/search/" + search.searchQuery);
+    localStorage.setItem("query", JSON.stringify(search));
+    nav("/search?");
   };
   return (
     <div className="NavBar">
@@ -132,6 +138,7 @@ const NavBar = () => {
           </svg>
           <textarea
             placeholder="Location, Restaurant, or Cuisine"
+            id="searchTerm"
             className="search"
           ></textarea>
         </span>
