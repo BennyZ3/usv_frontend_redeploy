@@ -26,7 +26,9 @@ const RestaurantsList = (props) => {
   }, [API, params]);
   return (
     <div className="restaurantList resList">
-      {restaurants.restaurants.length
+      {typeof restaurants.restaurants !== "object"
+        ? "No Restaurants found"
+        : restaurants.restaurants.length
         ? restaurants.restaurants.map((restaurant, index) => {
             return (
               <Restaurant
