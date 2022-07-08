@@ -2,7 +2,7 @@ import axios from "axios";
 import QueryString from 'qs';
 import { useEffect, useState } from "react";
 // import { useParams } from "react-router-dom";
-import {useLocation} from "react0router-dom";
+import {useLocation} from "react-router-dom";
 import Restaurant from "./Restaurant";
 import "./RestaurantList.css";
 
