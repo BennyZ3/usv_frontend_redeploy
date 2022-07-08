@@ -53,7 +53,7 @@ select {
   font-size: 1rem;
 }
 
-.NavBar textarea {
+.NavBar #searchTerm {
   padding-left: 5px;
   width: 290px;
   height: 2rem;
