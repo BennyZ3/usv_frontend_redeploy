@@ -26,7 +26,7 @@ const RestaurantsList = (props) => {
   }, [API, params]);
   return (
     <div className="restaurantList resList">
-      {typeof restaurants.restaurants === "object"
+      {restaurants.restaurants.length
         ? restaurants.restaurants.map((restaurant, index) => {
             return (
               <Restaurant
@@ -36,7 +36,7 @@ const RestaurantsList = (props) => {
               />
             );
           })
-        : ""}
+        : "No Restaurants found"}
     </div>
   );
 };
