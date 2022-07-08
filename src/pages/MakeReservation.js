@@ -48,16 +48,14 @@ const MakeReservation = (props) => {
     });
   };
   const handleTime = (event) => {
-    setTime(
-      { ...time, [event.target.id]: event.target.value },
-      setReservation({ ...reservation, time: `${time.date} ${time.time}` })
-    );
+    setTime({ ...time, [event.target.id]: event.target.value });
+    setReservation({ ...reservation, time: `${time.date} ${time.time}` });
   };
   const timeChecker = () => {
     // Check if date or time is already passed
     let date1 = Date.parse(props.date);
     let date2 = Date.parse(time.date);
-    // setReservation({ ...reservation, time: `${time.date} ${time.time}` });
+    setReservation({ ...reservation, time: `${time.date} ${time.time}` });
     if (time.time > props.close || time.time < props.open) {
       alert(`${restaurant.name} not open at ${reservation.time}`);
       return false;
