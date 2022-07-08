@@ -3,23 +3,23 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
-  const today = new Date();
+  // const today = new Date();
   const nav = useNavigate();
   // currently not used, but planning for a search based on availability
   const [search, setSearch] = useState({
-    date:
-      today.getFullYear() +
-      "-" +
-      (today.getMonth() > 8
-        ? today.getMonth() + 1
-        : "0" + (today.getMonth() + 1)) +
-      "-" +
-      today.getDate(),
-    time:
-      Number(today.getMinutes()) > 31
-        ? today.getHours() + 1 + ":00:00"
-        : today.getHours() + ":30:00",
-    numGuests: 1,
+    // date:
+    //   today.getFullYear() +
+    //   "-" +
+    //   (today.getMonth() > 8
+    //     ? today.getMonth() + 1
+    //     : "0" + (today.getMonth() + 1)) +
+    //   "-" +
+    //   today.getDate(),
+    // time:
+    //   Number(today.getMinutes()) > 31
+    //     ? today.getHours() + 1 + ":00:00"
+    //     : today.getHours() + ":30:00",
+    // numGuests: 1,
     searchQuery: "",
   });
 
@@ -36,20 +36,24 @@ const NavBar = () => {
   const navToRes = () => {
     nav("/reservations");
   };
+  const handleSearch = () => {
+    console.log(search);
+    nav("/search/" + search.searchQuery);
+  };
   return (
     <div className="NavBar">
       <div onClick={handleHome} className="NavBar_Logo">
         BZ Eater
       </div>
-      <form>
-        <input
+      <form onSubmit={handleSearch}>
+        {/* <input
           type="date"
           id="date"
           defaultValue={search.date}
           min={search.date}
           onChange={handleChange}
-        />
-        <select
+        /> */}
+        {/* <select
           className="timePicker"
           id="timePicker"
           value={search.time}
@@ -87,8 +91,8 @@ const NavBar = () => {
           <option value="22:30:00">10:30 PM</option>
           <option value="23:00:00">11:00 PM</option>
           <option value="23:30:00">11:30 PM</option>
-        </select>
-        <select
+        </select> */}
+        {/* <select
           className="partySize"
           defaultValue={{ value: search.numGuests }}
           onChange={handleChange}
@@ -114,7 +118,7 @@ const NavBar = () => {
           <option value="19">19</option>
           <option value="20">20</option>
           <option value="21">Larger</option>
-        </select>
+        </select> */}
         <span>
           <svg
             viewBox="0 0 24 24"
@@ -132,7 +136,9 @@ const NavBar = () => {
           </svg>
           <textarea
             placeholder="Location, Restaurant, or Cuisine"
+            id="searchQuery"
             className="search"
+            onChange={handleChange}
           ></textarea>
         </span>
         <button type="submit">Search</button>
