@@ -37,8 +37,6 @@ const NavBar = () => {
     nav("/reservations");
   };
   const handleSearch = () => {
-    console.log(search);
-    // nav("/search/" + search.searchQuery);
     localStorage.setItem("query", JSON.stringify(search));
     nav("/search?");
   };
