@@ -1,6 +1,7 @@
 import "./NavBar.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { stringify } from "qs";
 
 const NavBar = () => {
   // const today = new Date();
@@ -36,9 +37,12 @@ const NavBar = () => {
   const navToRes = () => {
     nav("/reservations");
   };
-  const handleSearch = () => {
-    localStorage.setItem("query", JSON.stringify(search));
-    nav("/search?");
+  const handleSearch = (event) => {
+    event.preventDefault();
+    if (search.searchTerm.length) {
+      localStorage.setItem("query", JSON.stringify(search));
+      nav("/search?");
+    }
   };
   return (
     <div className="NavBar">
