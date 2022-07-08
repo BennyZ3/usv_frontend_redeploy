@@ -1,7 +1,6 @@
 import "./NavBar.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { stringify } from "qs";
 
 const NavBar = () => {
   // const today = new Date();
