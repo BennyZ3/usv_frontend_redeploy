@@ -16,7 +16,6 @@ function App() {
         {/* topBar */}
         <Routes>
           <Route exact path="/" element={<LandingPage />} />
-          <Route path="/search/:searchTerm" element={<LandingPage />} />
           <Route path="/restaurants/:id" element={<RestaurantDetails />} />
           <Route
             path="/restaurants/:id/reservations"

@@ -1,7 +1,6 @@
 import RestaurantsList from "../components/RestaurantList.js";
 import "./LandingPage.css";
-const LandingPage = (props) => {
-  // const { query = "" } = props;
+const LandingPage = () => {
   return (
     <div className="LandingPage">
       <h2 className="BookTonight">Book Tonight</h2>
