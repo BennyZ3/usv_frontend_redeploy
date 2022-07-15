@@ -36,11 +36,9 @@ const NavBar = () => {
   const navToRes = () => {
     nav("/reservations");
   };
-  const handleSearch = (event) => {
-    if (search.searchTerm.length) {
-      localStorage.setItem("query", JSON.stringify(search));
-      nav("/search?");
-    }
+  const handleSearch = () => {
+    localStorage.setItem("query", JSON.stringify(search));
+    nav("/search?");
   };
   return (
     <div className="NavBar">
